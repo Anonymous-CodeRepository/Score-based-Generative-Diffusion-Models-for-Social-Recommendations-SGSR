@@ -1,0 +1,49 @@
+dataset: Epinions
+seed: 42
+epoches: 1000
+batch_size: 10424
+test_batch_size: 1024
+topks: '[10,5]'
+
+N: 30 
+M: 20  
+epsilon: 10 
+R: 0.8 
+keep_prob: 0.75 
+
+emb_dim: 128
+ui_n_layers: 4
+social_n_layers: 3
+condition_n_layers: 4
+ui_dropout: True
+keep_prob_ui: 0.8
+
+ui_encoder: LCN
+
+social_encoder: GAT
+
+lr: 0.0001
+weight_decay: 0.00007  
+weight_decay_social: 0.00005
+ema: 0.999
+grad_norm: 2.0
+
+sde: VP
+num_scale: 5
+sampling_scale: 5
+beta_min: 0.05
+beta_max: 3.0
+continuous: False
+likelihood_weighting: False
+reduce_mean: True
+
+sampling_method: pc
+predictor: EulerMaruyama
+corrector: Langevin
+snr: 0.17 
+
+tau: 0.5
+ssl_wd: 0.005 
+interOrIntra: 'inter'
+
+test_mode: 1

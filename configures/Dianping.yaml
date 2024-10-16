@@ -1,0 +1,65 @@
+dataset: Dianping
+seed: 42
+epoches: 600
+batch_size: 1024
+test_batch_size: 1024
+topks: '[10,5]'
+
+# number of epoch for select
+N: 30 # 14 6
+# number of epoch for random
+M: 20  
+epsilon: 10
+R: 0.8  #### 0.8 ############################
+keep_prob: 0.75 #### ############################
+
+emb_dim: 128
+ui_n_layers: 4
+social_n_layers: 3
+condition_n_layers: 4
+# version 1
+ui_dropout: True
+keep_prob_ui: 0.9
+ui_encoder: LCN
+
+# LCN  GCN
+social_encoder: GCN
+
+# version 1
+# weight_decay: 0.0001
+lr: 0.0001   ##############################3
+weight_decay: 0.00007 
+weight_decay_social: 0.00001
+ema: 0.999
+grad_norm: 2.0
+
+sde: VP
+num_scale: 5
+sampling_scale: 5
+beta_min: 0.03
+beta_max: 3.0
+continuous: False
+likelihood_weighting: False
+reduce_mean: True
+sampling_method: pc
+# EulerMaruyama, Reverse
+predictor: EulerMaruyama
+# Langevin, none
+corrector: Langevin
+snr: 0.15
+
+tau: 0.5
+ssl_wd: 0.005
+interOrIntra: 'inter'
+
+test_mode: 1
+ 
+
+
+# EulerMaruyama, Langevin
+# euler_maruyama, none
+# reversediffusion, none
+
+# ancestral_sampling, none
+
+# reverse, langevin

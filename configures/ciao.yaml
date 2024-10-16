@@ -1,0 +1,75 @@
+# python main.py --dataset ciao --core 1
+dataset: ciao
+seed: 42 
+epoches: 1000
+batch_size: 1024
+test_batch_size: 1024
+topks: '[10,5]'
+
+# number of epoch for select
+N: 6 # 14 6
+# number of epoch for random
+M: 4
+# 64 32  
+epsilon: 10  # minimum length of social relation
+R: 0.8 # drop for select  0.7  0.9
+keep_prob: 0.9 # for social  0.8  0.95
+# 0.1  0.25
+
+emb_dim: 128
+ui_n_layers: 3
+social_n_layers: 3
+condition_n_layers: 4
+ui_dropout: True
+keep_prob_ui: 0.8
+
+# 434   0.9
+
+ui_encoder: LCN
+# LCN  GCN
+social_encoder: GCN
+# version 1
+# weight_decay: 0.0001
+lr: 0.00015
+weight_decay: 0.0002 
+
+weight_decay_social: 0.0001 ################################
+# 0.00015  0.000095
+ema: 0.999
+grad_norm: 2.0
+
+sde: VE
+num_scale: 5
+sampling_scale: 5
+beta_min: 0.05 # 0: 0.01  0.5     0.07 
+beta_max: 0.5 # 0: 35   1: 25  0.75
+continuous: False
+likelihood_weighting: False
+reduce_mean: True
+
+# 0: 55 1 0.01   1: 0.9 40 [0.01 5] [0.1 30]     (0.05 20) (0.25 20) [0.25 2]
+
+
+sampling_method: pc 
+# EulerMaruyama, Reverse, Ancestral
+predictor: EulerMaruyama
+# Langevin, AnnealedLangevin, none
+corrector: Langevin
+snr: 0.16 #0.13
+
+tau: 0.4
+ssl_wd: 0.001
+interOrIntra: 'inter'
+
+# 0:0.125     1:0.175
+test_mode: 1
+
+
+# EulerMaruyama, Langevin
+# euler_maruyama, none
+# reversediffusion, none
+
+# ancestral_sampling, none
+
+# reverse, langevin
+# 0.93
